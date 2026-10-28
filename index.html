@@ -8,7 +8,7 @@
   <meta name="keywords" content="барбершоп Брянск, мужская стрижка Брянск, барбер Бежица, стрижка бороды Брянск, Волков барбер, Volkov Barber">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Волков барбер клуб">
-  <meta name="theme-color" content="#0e0d0c">
+  <meta name="theme-color" content="#f2ece3">
   <meta name="format-detection" content="telephone=yes">
   <link rel="canonical" href="https://mikeparkhom.github.io/VolkovBarber/">
 
@@ -31,8 +31,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="modulepreload" href="assets/vendor/three.module.min.js">
 
   <script type="application/ld+json">
   {
@@ -143,10 +144,13 @@
 <body>
   <a class="skip" href="#main">Перейти к содержанию</a>
 
+  <!-- 3D-сцена: ножницы и опасная бритва, летают при прокрутке -->
+  <canvas class="stage3d" id="stage3d" aria-hidden="true"></canvas>
+
   <header class="header" id="top">
     <div class="container header__inner">
       <a class="header__logo" href="#top" aria-label="Волков барбер клуб — на главную">
-        <img src="assets/img/logo.png" alt="Волков барбер клуб" width="560" height="185">
+        <img src="assets/img/logo-graphite.png" alt="Волков барбер клуб" width="560" height="185">
       </a>
       <nav class="nav" aria-label="Основная навигация">
         <button class="nav__toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Открыть меню">
@@ -158,58 +162,65 @@
           <li><a href="#works">Работы</a></li>
           <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#contacts">Контакты</a></li>
-          <li class="nav__book"><a class="btn btn--gold" href="#booking" data-book>Записаться онлайн</a></li>
+          <li class="nav__book"><a class="btn btn--dark" href="#booking" data-book>Записаться онлайн</a></li>
         </ul>
       </nav>
-      <a class="btn btn--gold btn--sm header__cta" href="#booking" data-book>Записаться</a>
+      <a class="btn btn--dark btn--sm header__cta" href="#booking" data-book>Записаться</a>
     </div>
   </header>
 
   <main id="main">
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__grid">
         <div class="hero__text">
           <p class="eyebrow">Барбершоп · Брянск, Бежица</p>
-          <h1 id="hero-title" class="hero__title">Мужские стрижки <span class="gold">без компромиссов</span></h1>
-          <p class="hero__lead">«Волков барбер клуб» — место, где стрижку делают точно под вас: фейды, текстурные и длинные стрижки, стрижка и тонирование бороды, детские стрижки.</p>
+          <h1 id="hero-title" class="hero__title">
+            <span class="line"><span>Волков</span></span>
+            <span class="line"><span class="outline">барбер</span></span>
+            <span class="line"><span>клуб</span></span>
+          </h1>
+          <p class="hero__lead">Мужские и детские стрижки, стрижка и тонирование бороды. Точная работа ножницами и бритвой в спокойной атмосфере клуба.</p>
           <div class="hero__actions">
-            <a class="btn btn--gold" href="#booking" data-book>Записаться онлайн</a>
-            <a class="btn btn--ghost" href="tel:+79191979057">+7 919 197-90-57</a>
+            <a class="btn btn--dark" href="#booking" data-book>Записаться онлайн</a>
+            <a class="btn btn--line" href="tel:+79191979057">+7 919 197-90-57</a>
           </div>
-          <ul class="hero__facts">
-            <li><strong>5,0</strong><span>рейтинг на Яндекс Картах</span></li>
-            <li><strong>82</strong><span>отзыва клиентов</span></li>
-            <li><strong>2</strong><span>мастера</span></li>
-          </ul>
         </div>
-        <figure class="hero__photo">
-          <img src="assets/img/team/volkov.jpg" alt="Алексей Волков, основатель барбершопа «Волков барбер клуб», у барберского кресла" width="900" height="1117" fetchpriority="high">
-          <figcaption><span>Алексей Волков</span>основатель клуба</figcaption>
-        </figure>
+        <div class="hero__stage" aria-hidden="true">
+          <div class="hero__ring"></div>
+        </div>
       </div>
+      <ul class="hero__facts container">
+        <li><strong>5,0</strong><span>рейтинг на Яндекс Картах</span></li>
+        <li><strong>82</strong><span>отзыва клиентов</span></li>
+        <li><strong>9–20</strong><span>ежедневно</span></li>
+      </ul>
+      <div class="hero__scroll" aria-hidden="true"><span></span>листайте</div>
     </section>
 
-    <!-- FEATURES -->
-    <section class="strip" aria-label="Удобства">
-      <div class="container strip__list">
-        <span>Предварительная запись</span><span>Оплата картой</span><span>Парковка</span><span>Велопарковка</span><span>Wi-Fi</span><span>Лифт</span>
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Стрижки</span><i>·</i><span>Борода</span><i>·</i><span>Тонирование</span><i>·</i><span>Опасная бритва</span><i>·</i><span>Детские стрижки</span><i>·</i>
+        <span>Стрижки</span><i>·</i><span>Борода</span><i>·</i><span>Тонирование</span><i>·</i><span>Опасная бритва</span><i>·</i><span>Детские стрижки</span><i>·</i>
       </div>
-    </section>
+    </div>
 
     <!-- ABOUT / FOUNDER -->
-    <section class="section about" id="about" aria-labelledby="about-title">
+    <section class="section section--dark curtain" id="about" aria-labelledby="about-title">
       <div class="container about__grid">
-        <div class="about__photo">
+        <div class="about__photo" data-parallax>
           <img src="assets/img/team/volkov-portrait.jpg" alt="Основатель барбершопа Алексей Волков" width="540" height="675" loading="lazy">
         </div>
-        <div>
+        <div class="about__text">
           <p class="eyebrow">Основатель</p>
-          <h2 id="about-title" class="h2">Алексей Волков</h2>
+          <h2 id="about-title" class="h2" data-split>Алексей Волков</h2>
           <p class="lead">Клуб назван по фамилии основателя. Алексей сам работает в кресле и задаёт стандарт для команды: аккуратные переходы, чистый контур и стрижка, которая держит форму и через три недели.</p>
-          <p>Мы не торопимся: на каждого гостя есть время, чтобы обсудить форму, подобрать длину и подсказать, как укладывать волосы дома. Уютный зал, кофе и спокойная атмосфера — в комплекте.</p>
-          <a class="btn btn--gold" href="#booking" data-book>Записаться к мастеру</a>
+          <p class="muted">Мы не торопимся: на каждого гостя есть время, чтобы обсудить форму, подобрать длину и подсказать, как укладывать волосы дома. Уютный зал, кофе и спокойная атмосфера в комплекте.</p>
+          <ul class="perks">
+            <li>Предварительная запись</li><li>Оплата картой</li><li>Парковка</li><li>Велопарковка</li><li>Wi-Fi</li><li>Лифт</li>
+          </ul>
+          <a class="btn btn--milk" href="#booking" data-book>Записаться к мастеру</a>
         </div>
       </div>
     </section>
@@ -219,7 +230,7 @@
       <div class="container">
         <div class="section__head">
           <p class="eyebrow">Услуги и цены</p>
-          <h2 id="services-title" class="h2">Что мы делаем</h2>
+          <h2 id="services-title" class="h2" data-split>Что мы делаем</h2>
           <p class="muted">Свободное время у мастеров видно при онлайн-записи.</p>
         </div>
         <ul class="price">
@@ -252,34 +263,34 @@
             <span class="price__value">700 ₽</span>
           </li>
         </ul>
-        <div class="center"><a class="btn btn--gold" href="#booking" data-book>Выбрать услугу и время</a></div>
+        <div class="center"><a class="btn btn--dark" href="#booking" data-book>Выбрать услугу и время</a></div>
       </div>
     </section>
 
     <!-- TEAM -->
-    <section class="section section--alt" id="team" aria-labelledby="team-title">
+    <section class="section section--dark curtain" id="team" aria-labelledby="team-title">
       <div class="container">
         <div class="section__head">
           <p class="eyebrow">Мастера</p>
-          <h2 id="team-title" class="h2">Барберы клуба</h2>
+          <h2 id="team-title" class="h2" data-split>Барберы клуба</h2>
         </div>
         <div class="team">
-          <article class="card master">
+          <article class="master">
             <div class="master__photo"><img src="assets/img/team/alexey.jpg" alt="Барбер Алексей" width="900" height="1200" loading="lazy"></div>
             <div class="master__body">
               <h3>Алексей</h3>
               <p class="muted">Барбер</p>
               <blockquote>«Отличный МАСТЕР Алексей!!! Классное место рекомендую 👍»<cite>DenKorneychuk, Яндекс Карты</cite></blockquote>
-              <a class="btn btn--ghost btn--sm" href="#booking" data-book>Записаться к Алексею</a>
+              <a class="btn btn--milk btn--sm" href="#booking" data-book>Записаться к Алексею</a>
             </div>
           </article>
-          <article class="card master">
+          <article class="master">
             <div class="master__photo"><img src="assets/img/team/vadim.jpg" alt="Барбер Вадим" width="480" height="600" loading="lazy"></div>
             <div class="master__body">
               <h3>Вадим</h3>
               <p class="muted">Барбер</p>
               <blockquote>«Прекрасный мастер Вадим, шикарное место, очень удобно и уютно, рекомендую.»<cite>Дмитрий Фридель, Яндекс Карты</cite></blockquote>
-              <a class="btn btn--ghost btn--sm" href="#booking" data-book>Записаться к Вадиму</a>
+              <a class="btn btn--milk btn--sm" href="#booking" data-book>Записаться к Вадиму</a>
             </div>
           </article>
         </div>
@@ -291,7 +302,7 @@
       <div class="container">
         <div class="section__head">
           <p class="eyebrow">Портфолио</p>
-          <h2 id="works-title" class="h2">Наши работы</h2>
+          <h2 id="works-title" class="h2" data-split>Наши работы</h2>
         </div>
         <div class="gallery" id="gallery">
           <button type="button" data-full="assets/img/works/w01-full.jpg" aria-label="Открыть фото: мужская стрижка с фейдом и оформленная борода"><img src="assets/img/works/w01.jpg" alt="Мужская стрижка с фейдом и оформленная борода — работа барбершопа «Волков барбер клуб»" width="640" height="853" loading="lazy" decoding="async"></button>
@@ -319,31 +330,29 @@
     </section>
 
     <!-- BOOKING -->
-    <section class="section booking" id="booking" aria-labelledby="booking-title">
+    <section class="section section--dark booking curtain" id="booking" aria-labelledby="booking-title">
       <div class="container booking__box">
-        <div>
-          <p class="eyebrow">Онлайн-запись</p>
-          <h2 id="booking-title" class="h2">Запишитесь за минуту</h2>
-          <ol class="steps">
-            <li>Выберите мастера и услугу</li>
-            <li>Отметьте удобные дату и время</li>
-            <li>Получите подтверждение от Яндекса</li>
-          </ol>
-        </div>
+        <p class="eyebrow">Онлайн-запись</p>
+        <h2 id="booking-title" class="h2" data-split>Запишитесь за минуту</h2>
+        <ol class="steps">
+          <li>Выберите мастера и услугу</li>
+          <li>Отметьте удобные дату и время</li>
+          <li>Получите подтверждение от Яндекса</li>
+        </ol>
         <div class="booking__actions">
-          <a class="btn btn--gold btn--lg" href="https://yandex.ru/web-maps/webview?mode=booking&amp;booking[permalink]=171798453705&amp;booking[standalone]=true&amp;source=partner-cta" target="_blank" rel="noopener" data-yandex-booking>Записаться через Яндекс</a>
-          <a class="btn btn--ghost" href="tel:+79191979057">Или позвонить: +7 919 197-90-57</a>
-          <p class="muted small">Запись работает через сервис Яндекс Запись: напомним о визите, а перенести или отменить можно в пару касаний.</p>
+          <a class="btn btn--milk btn--lg" href="https://yandex.ru/web-maps/webview?mode=booking&amp;booking[permalink]=171798453705&amp;booking[standalone]=true&amp;source=partner-cta" target="_blank" rel="noopener" data-yandex-booking>Записаться через Яндекс</a>
+          <a class="btn btn--line-light" href="tel:+79191979057">Или позвонить: +7 919 197-90-57</a>
         </div>
+        <p class="muted small">Запись работает через сервис Яндекс Запись: напомним о визите, а перенести или отменить можно в пару касаний.</p>
       </div>
     </section>
 
     <!-- REVIEWS -->
-    <section class="section section--alt" id="reviews" aria-labelledby="reviews-title">
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
       <div class="container">
         <div class="section__head">
           <p class="eyebrow">Отзывы</p>
-          <h2 id="reviews-title" class="h2">Нам доверяют</h2>
+          <h2 id="reviews-title" class="h2" data-split>Нам доверяют</h2>
           <div class="rating">
             <span class="rating__value">5,0</span>
             <span class="rating__stars" aria-hidden="true">★★★★★</span>
@@ -351,53 +360,54 @@
           </div>
         </div>
         <div class="reviews">
-          <figure class="card review">
+          <figure class="review">
             <div class="review__stars" aria-label="5 из 5">★★★★★</div>
             <blockquote>Прекрасный мастер Вадим, шикарное место, очень удобно и уютно, рекомендую.</blockquote>
             <figcaption><span class="avatar">Д</span><span>Дмитрий Фридель<small>23 октября</small></span></figcaption>
           </figure>
-          <figure class="card review">
+          <figure class="review">
             <div class="review__stars" aria-label="5 из 5">★★★★★</div>
             <blockquote>Отличный МАСТЕР Алексей!!! Классное место рекомендую 👍</blockquote>
             <figcaption><span class="avatar">D</span><span>DenKorneychuk<small>18 октября</small></span></figcaption>
           </figure>
-          <figure class="card review">
+          <figure class="review">
             <div class="review__stars" aria-label="5 из 5">★★★★★</div>
             <blockquote>Все на высшем уровне!</blockquote>
             <figcaption><span class="avatar">Д</span><span>Дмитрий С<small>19 августа</small></span></figcaption>
           </figure>
-          <figure class="card review">
+          <figure class="review">
             <div class="review__stars" aria-label="5 из 5">★★★★★</div>
             <blockquote>Лысый нормально подстриг</blockquote>
             <figcaption><span class="avatar">А</span><span>Дом Алиса<small>26 сентября</small></span></figcaption>
           </figure>
         </div>
-        <div class="center"><a class="btn btn--ghost" href="https://yandex.ru/maps/org/171798453705/reviews/" target="_blank" rel="noopener">Все отзывы и оставить свой</a></div>
+        <div class="center"><a class="btn btn--line" href="https://yandex.ru/maps/org/171798453705/reviews/" target="_blank" rel="noopener">Все отзывы и оставить свой</a></div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
+    <section class="section section--milk2" id="faq" aria-labelledby="faq-title">
       <div class="container container--narrow">
         <div class="section__head">
           <p class="eyebrow">Вопросы</p>
-          <h2 id="faq-title" class="h2">Частые вопросы</h2>
+          <h2 id="faq-title" class="h2" data-split>Частые вопросы</h2>
         </div>
         <div class="faq">
-          <details><summary>Как записаться?</summary><p>Нажмите «Записаться» — откроется Яндекс Запись, где можно выбрать мастера, услугу и время. Или позвоните по номеру +7 919 197-90-57.</p></details>
+          <details><summary>Как записаться?</summary><p>Нажмите «Записаться»: откроется Яндекс Запись, где можно выбрать мастера, услугу и время. Или позвоните по номеру +7 919 197-90-57.</p></details>
+          <details><summary>Какой режим работы?</summary><p>Ежедневно с 9:00 до 20:00 по предварительной записи.</p></details>
           <details><summary>Где вы находитесь?</summary><p>Брянск, Бежицкий район, улица Куйбышева, 15А. Рядом есть парковка и велопарковка.</p></details>
-          <details><summary>Сколько стоит стрижка?</summary><p>Мужская стрижка — 1 400 ₽, под машинку — 1 200 ₽, детская — 1 100 ₽, комплекс «стрижка + борода» — 2 000 ₽. Полный прайс — в разделе «Услуги».</p></details>
+          <details><summary>Сколько стоит стрижка?</summary><p>Мужская стрижка 1 400 ₽, под машинку 1 200 ₽, детская 1 100 ₽, комплекс «стрижка + борода» 2 000 ₽. Полный прайс в разделе «Услуги».</p></details>
           <details><summary>Можно оплатить картой?</summary><p>Да, принимаем банковские карты.</p></details>
         </div>
       </div>
     </section>
 
     <!-- CONTACTS -->
-    <section class="section section--alt" id="contacts" aria-labelledby="contacts-title">
+    <section class="section section--dark curtain" id="contacts" aria-labelledby="contacts-title">
       <div class="container contacts">
         <div class="contacts__info">
           <p class="eyebrow">Контакты</p>
-          <h2 id="contacts-title" class="h2">Как нас найти</h2>
+          <h2 id="contacts-title" class="h2" data-split>Как нас найти</h2>
           <address>
             <dl>
               <dt>Адрес</dt>
@@ -409,8 +419,8 @@
             </dl>
           </address>
           <div class="contacts__actions">
-            <a class="btn btn--gold" href="#booking" data-book>Записаться</a>
-            <a class="btn btn--ghost" href="https://yandex.ru/maps/?rtext=~53.307251%2C34.30711&amp;mode=routes" target="_blank" rel="noopener">Построить маршрут</a>
+            <a class="btn btn--milk" href="#booking" data-book>Записаться</a>
+            <a class="btn btn--line-light" href="https://yandex.ru/maps/?rtext=~53.307251%2C34.30711&amp;mode=routes" target="_blank" rel="noopener">Построить маршрут</a>
           </div>
         </div>
         <div class="contacts__map">
@@ -422,9 +432,9 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <img src="assets/img/logo.png" alt="Волков барбер клуб" width="180" height="59" loading="lazy">
-      <p class="muted small">Барбершоп в Брянске · ул. Куйбышева, 15А · <a href="tel:+79191979057">+7 919 197-90-57</a></p>
-      <p class="muted small">© <span data-year>2026</span> Волков барбер клуб</p>
+      <img src="assets/img/logo-milk.png" alt="Волков барбер клуб" width="180" height="59" loading="lazy">
+      <p class="small">Барбершоп в Брянске · ул. Куйбышева, 15А · <a href="tel:+79191979057">+7 919 197-90-57</a></p>
+      <p class="small">© <span data-year>2026</span> Волков барбер клуб</p>
     </div>
   </footer>
 
@@ -433,6 +443,10 @@
     <img alt="">
   </div>
 
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
+  <script type="module" src="assets/js/scene.js"></script>
 </body>
 </html>

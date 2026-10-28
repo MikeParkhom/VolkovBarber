@@ -17,7 +17,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("src")
     ap.add_argument("dst")
-    ap.add_argument("--color", default="2b2622")
+    ap.add_argument("--color", default="2d2d30")
     ap.add_argument("--size", type=int, default=1400)
     args = ap.parse_args()
 
