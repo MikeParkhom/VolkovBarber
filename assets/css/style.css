@@ -96,14 +96,15 @@ p { margin: 0 0 1em; }
 .outline { color: #b8afa2; }
 .hero__lead { font-size: 18px; color: var(--ink-muted); max-width: 470px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-.hero__photos { display: grid; grid-template-columns: 1.45fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; height: min(68vh, 620px); }
+.hero__photos { display: grid; height: min(72vh, 660px); max-width: 520px; width: 100%; justify-self: end; }
 .hero__card { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--photo-bg); }
-.hero__card--main { grid-row: span 2; }
 .hero__card img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .9s var(--ease); }
 .hero__card:hover img { transform: scale(1.04); }
 .hero__card figcaption { position: absolute; left: 12px; bottom: 12px; right: 12px; padding: 10px 14px; border-radius: 14px;
   background: rgba(242, 236, 227, .88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--ink-muted); font-size: 12px; line-height: 1.3; }
-.hero__card figcaption span { display: block; font: 500 15px/1.2 var(--font-head); color: var(--ink); }
+.hero__card figcaption span span, .hero__card figcaption > span:not(.hero__who) { display: block; font: 500 15px/1.2 var(--font-head); color: var(--ink); }
+.hero__card--main figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 16px; }
+.hero__card--main figcaption .btn { flex: none; }
 .hero__facts { display: flex; gap: 56px; list-style: none; margin: 48px auto 0; padding-top: 28px; border-top: 1px solid var(--line-dark); }
 .hero__facts strong { display: block; font: 500 30px/1 var(--font-head); white-space: nowrap; }
 .hero__facts span { font-size: 13px; color: var(--ink-muted); }
@@ -203,6 +204,8 @@ p { margin: 0 0 1em; }
 .contacts dt { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--light-muted); margin-top: 20px; }
 .contacts dd { margin: 0; font-size: 18px; }
 .contacts dd a { text-decoration: none; }
+.contacts__book { margin: 0 0 24px; padding-top: 26px; border-top: 1px solid var(--line-light); }
+.contacts__book .steps { margin: 0; }
 .contacts__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .contacts__map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line-light); min-height: 440px; background: var(--graphite-2); }
 .contacts__map iframe { width: 100%; height: 100%; min-height: 440px; border: 0; filter: grayscale(1) contrast(1.05); }
@@ -254,11 +257,9 @@ p { margin: 0 0 1em; }
   /* Первый экран: текст по центру, ниже фото основателя и барберов */
   .hero { min-height: 0; padding: 100px 0 40px; justify-content: flex-start; }
   .hero__grid { grid-template-columns: 1fr; gap: 0; }
-  .hero__photos { height: auto; aspect-ratio: 1 / 1.05; margin-top: 40px; gap: 10px; }
-  .hero__card figcaption { left: 8px; right: 8px; bottom: 8px; padding: 6px 10px; font-size: 11px; }
-  .hero__card figcaption span { font-size: 13px; }
-  .hero__card:not(.hero__card--main) figcaption { font-size: 0; }
-  .hero__card:not(.hero__card--main) figcaption span { font-size: 12px; }
+  .hero__photos { height: auto; aspect-ratio: 4 / 5; max-width: 420px; margin: 40px auto 0; justify-self: center; }
+  .hero__card figcaption { left: 8px; right: 8px; bottom: 8px; font-size: 11px; }
+  .hero__card figcaption span span { font-size: 13px; }
   .hero__text { text-align: center; }
   .hero__title { font-size: clamp(42px, 13vw, 72px); }
   .hero__lead { margin: 0 auto; }
