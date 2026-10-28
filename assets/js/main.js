@@ -68,20 +68,6 @@
       });
     }, { rootMargin: '0px 0px -8% 0px' });
     targets.forEach(function (t) { t.classList.add('reveal'); io.observe(t); });
-
-    // Прячем плавающую кнопку, когда виден блок записи
-    var fab = document.querySelector('.fab');
-    var booking = document.getElementById('booking');
-    if (fab && booking) {
-      var bookingVisible = false;
-      var syncFab = function () { fab.classList.toggle('is-hidden', bookingVisible || window.scrollY < 480); };
-      new IntersectionObserver(function (entries) {
-        bookingVisible = entries[0].isIntersecting;
-        syncFab();
-      }).observe(booking);
-      window.addEventListener('scroll', syncFab, { passive: true });
-      syncFab();
-    }
   }
 
   var y = document.querySelector('[data-year]');

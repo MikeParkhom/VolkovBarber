@@ -64,7 +64,7 @@
         "openingHoursSpecification": [{
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-          "opens": "11:00",
+          "opens": "09:00",
           "closes": "20:00"
         }],
         "amenityFeature": [
@@ -87,7 +87,13 @@
           {"@type": "Review", "author": {"@type": "Person", "name": "Дмитрий С"}, "reviewBody": "Все на высшем уровне!"}
         ],
         "makesOffer": [
-          {"@type": "Offer", "price": "1400", "priceCurrency": "RUB", "itemOffered": {"@type": "Service", "name": "Мужская стрижка"}}
+          {"@type": "Offer", "price": "1400", "priceCurrency": "RUB", "itemOffered": {"@type": "Service", "name": "Мужская стрижка"}},
+          {"@type": "Offer", "price": "1200", "priceCurrency": "RUB", "itemOffered": {"@type": "Service", "name": "Стрижка под машинку"}},
+          {"@type": "Offer", "price": "1000", "priceCurrency": "RUB", "itemOffered": {"@type": "Service", "name": "Стрижка бороды"}},
+          {"@type": "Offer", "price": "1100", "priceCurrency": "RUB", "itemOffered": {"@type": "Service", "name": "Детская стрижка"}},
+          {"@type": "Offer", "price": "2000", "priceCurrency": "RUB", "itemOffered": {"@type": "Service", "name": "Комплекс: стрижка + борода"}},
+          {"@type": "Offer", "price": "1000", "priceCurrency": "RUB", "itemOffered": {"@type": "Service", "name": "Тонирование головы"}},
+          {"@type": "Offer", "price": "700", "priceCurrency": "RUB", "itemOffered": {"@type": "Service", "name": "Тонирование бороды"}}
         ],
         "potentialAction": {
           "@type": "ReserveAction",
@@ -120,10 +126,12 @@
         "mainEntity": [
           {"@type": "Question", "name": "Как записаться в «Волков барбер клуб»?",
            "acceptedAnswer": {"@type": "Answer", "text": "Онлайн через Яндекс: нажмите «Записаться» на сайте, выберите мастера, услугу и время. Или позвоните: +7 919 197-90-57."}},
+          {"@type": "Question", "name": "Какой режим работы?",
+           "acceptedAnswer": {"@type": "Answer", "text": "Ежедневно с 9:00 до 20:00 по предварительной записи."}},
           {"@type": "Question", "name": "Где находится барбершоп?",
            "acceptedAnswer": {"@type": "Answer", "text": "Брянск, Бежицкий район, улица Куйбышева, 15А. Рядом есть парковка и велопарковка."}},
           {"@type": "Question", "name": "Сколько стоит мужская стрижка?",
-           "acceptedAnswer": {"@type": "Answer", "text": "Мужская стрижка — 1400 ₽. Актуальные цены на все услуги видны при онлайн-записи."}},
+           "acceptedAnswer": {"@type": "Answer", "text": "Мужская стрижка — 1400 ₽, стрижка под машинку — 1200 ₽, стрижка бороды — 1000 ₽, детская стрижка — 1100 ₽, комплекс стрижка + борода — 2000 ₽, тонирование головы — 1000 ₽, тонирование бороды — 700 ₽."}},
           {"@type": "Question", "name": "Можно ли оплатить картой?",
            "acceptedAnswer": {"@type": "Answer", "text": "Да, принимаем оплату банковской картой."}}
         ]
@@ -150,6 +158,7 @@
           <li><a href="#works">Работы</a></li>
           <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#contacts">Контакты</a></li>
+          <li class="nav__book"><a class="btn btn--gold" href="#booking" data-book>Записаться онлайн</a></li>
         </ul>
       </nav>
       <a class="btn btn--gold btn--sm header__cta" href="#booking" data-book>Записаться</a>
@@ -164,7 +173,7 @@
         <div class="hero__text">
           <p class="eyebrow">Барбершоп · Брянск, Бежица</p>
           <h1 id="hero-title" class="hero__title">Мужские стрижки <span class="gold">без компромиссов</span></h1>
-          <p class="hero__lead">«Волков барбер клуб» — место, где стрижку делают точно под вас: фейды, текстурные и длинные стрижки, оформление бороды и усов.</p>
+          <p class="hero__lead">«Волков барбер клуб» — место, где стрижку делают точно под вас: фейды, текстурные и длинные стрижки, стрижка и тонирование бороды, детские стрижки.</p>
           <div class="hero__actions">
             <a class="btn btn--gold" href="#booking" data-book>Записаться онлайн</a>
             <a class="btn btn--ghost" href="tel:+79191979057">+7 919 197-90-57</a>
@@ -211,28 +220,36 @@
         <div class="section__head">
           <p class="eyebrow">Услуги и цены</p>
           <h2 id="services-title" class="h2">Что мы делаем</h2>
-          <p class="muted">Точная стоимость и свободное время видны при онлайн-записи и зависят от мастера.</p>
+          <p class="muted">Свободное время у мастеров видно при онлайн-записи.</p>
         </div>
         <ul class="price">
           <li class="price__item">
-            <div><h3>Мужская стрижка</h3><p>Консультация, мытьё головы, стрижка ножницами и машинкой, укладка.</p></div>
+            <div><h3>Мужская стрижка</h3><p>Консультация, стрижка ножницами и машинкой, укладка.</p></div>
             <span class="price__value">1 400 ₽</span>
           </li>
           <li class="price__item">
-            <div><h3>Фейд и стрижка машинкой</h3><p>Плавные переходы от кожи, чёткий контур.</p></div>
-            <span class="price__value">по записи</span>
+            <div><h3>Стрижка под машинку</h3><p>Одна или несколько насадок, аккуратный контур.</p></div>
+            <span class="price__value">1 200 ₽</span>
           </li>
           <li class="price__item">
-            <div><h3>Длинная и текстурная стрижка</h3><p>Маллет, шегги, кудри: форма с сохранением длины.</p></div>
-            <span class="price__value">по записи</span>
+            <div><h3>Стрижка бороды</h3><p>Моделирование формы, контур, уход.</p></div>
+            <span class="price__value">1 000 ₽</span>
           </li>
           <li class="price__item">
-            <div><h3>Оформление бороды и усов</h3><p>Моделирование формы, контур, уход.</p></div>
-            <span class="price__value">по записи</span>
+            <div><h3>Детская стрижка</h3><p>Аккуратная стрижка для юных гостей.</p></div>
+            <span class="price__value">1 100 ₽</span>
           </li>
           <li class="price__item">
-            <div><h3>Стрижка + борода</h3><p>Комплекс за один визит.</p></div>
-            <span class="price__value">по записи</span>
+            <div><h3>Комплекс: стрижка + борода</h3><p>Стрижка и оформление бороды за один визит.</p></div>
+            <span class="price__value">2 000 ₽</span>
+          </li>
+          <li class="price__item">
+            <div><h3>Тонирование головы</h3><p>Маскировка седины, естественный оттенок.</p></div>
+            <span class="price__value">1 000 ₽</span>
+          </li>
+          <li class="price__item">
+            <div><h3>Тонирование бороды</h3><p>Ровный цвет бороды без эффекта краски.</p></div>
+            <span class="price__value">700 ₽</span>
           </li>
         </ul>
         <div class="center"><a class="btn btn--gold" href="#booking" data-book>Выбрать услугу и время</a></div>
@@ -257,7 +274,7 @@
             </div>
           </article>
           <article class="card master">
-            <div class="master__photo"><img src="assets/img/team/vadim.jpg" alt="Барбер Вадим" width="800" height="1200" loading="lazy"></div>
+            <div class="master__photo"><img src="assets/img/team/vadim.jpg" alt="Барбер Вадим" width="480" height="600" loading="lazy"></div>
             <div class="master__body">
               <h3>Вадим</h3>
               <p class="muted">Барбер</p>
@@ -369,7 +386,7 @@
         <div class="faq">
           <details><summary>Как записаться?</summary><p>Нажмите «Записаться» — откроется Яндекс Запись, где можно выбрать мастера, услугу и время. Или позвоните по номеру +7 919 197-90-57.</p></details>
           <details><summary>Где вы находитесь?</summary><p>Брянск, Бежицкий район, улица Куйбышева, 15А. Рядом есть парковка и велопарковка.</p></details>
-          <details><summary>Сколько стоит стрижка?</summary><p>Мужская стрижка — 1 400 ₽. Цены на остальные услуги видны при онлайн-записи.</p></details>
+          <details><summary>Сколько стоит стрижка?</summary><p>Мужская стрижка — 1 400 ₽, под машинку — 1 200 ₽, детская — 1 100 ₽, комплекс «стрижка + борода» — 2 000 ₽. Полный прайс — в разделе «Услуги».</p></details>
           <details><summary>Можно оплатить картой?</summary><p>Да, принимаем банковские карты.</p></details>
         </div>
       </div>
@@ -388,7 +405,7 @@
               <dt>Телефон</dt>
               <dd><a href="tel:+79191979057">+7 919 197-90-57</a></dd>
               <dt>Режим работы</dt>
-              <dd>Ежедневно 11:00–20:00<br><span class="muted small">по предварительной записи</span></dd>
+              <dd>Ежедневно 9:00–20:00<br><span class="muted small">по предварительной записи</span></dd>
             </dl>
           </address>
           <div class="contacts__actions">
@@ -410,8 +427,6 @@
       <p class="muted small">© <span data-year>2026</span> Волков барбер клуб</p>
     </div>
   </footer>
-
-  <a class="fab" href="#booking" data-book aria-label="Записаться онлайн">Записаться</a>
 
   <div class="lightbox" id="lightbox" hidden>
     <button class="lightbox__close" aria-label="Закрыть">×</button>
