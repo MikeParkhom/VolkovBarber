@@ -40,7 +40,8 @@ p { margin: 0 0 1em; }
 .skip:focus { left: 8px; }
 
 .eyebrow { font: 600 12px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 18px; display: inline-flex; align-items: center; gap: .55em; }
-.eyebrow::before { content: "·"; font-size: 1.4em; line-height: 1; }
+.eyebrow::before, .eyebrow::after { content: "·"; font-size: 1.4em; line-height: 1; }
+.nowrap { white-space: nowrap; }
 .h2 { font-size: clamp(30px, 4.6vw, 58px); text-transform: uppercase; }
 .muted { color: var(--ink-muted); }
 .small { font-size: 14px; }
@@ -288,8 +289,12 @@ p { margin: 0 0 1em; }
 @media (max-width: 560px) {
   .container { padding: 0 18px; }
   .reviews { grid-template-columns: 1fr; }
-  .gallery { columns: 2; column-gap: 10px; }
-  .gallery button { margin-bottom: 10px; }
+  /* Ровная сетка 2×N, чтобы последний ряд не уходил в один столбец */
+  .gallery { columns: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .gallery button { margin-bottom: 0; aspect-ratio: 4/5; }
+  .gallery img { height: 100%; object-fit: cover; object-position: center top; }
+  .footer .nowrap { display: block; margin-top: 4px; }
+  .footer__sep { display: none; }
   .hero__facts strong { font-size: 24px; }
   .price__item { grid-template-columns: 34px 1fr; gap: 6px 14px; padding: 22px 4px; }
   .price__value { grid-column: 2; }

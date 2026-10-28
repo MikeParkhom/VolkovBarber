@@ -140,11 +140,9 @@
     });
     gsap.set(selector, vars);
   }
-  batchIn('.price__item', { x: -40, opacity: 0 });
   batchIn('.gallery button', { y: 70, opacity: 0, scale: 0.96 });
   batchIn('.review', { y: 60, opacity: 0, rotate: 1.5 });
   batchIn('.master', { y: 80, opacity: 0 });
-  batchIn('.faq details', { y: 24, opacity: 0 });
 
   window.addEventListener('load', function () { window.ScrollTrigger.refresh(); });
 })();

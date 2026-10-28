@@ -37,7 +37,7 @@ tools/replace_bg.py   скрипт замены фона на фото
 
 - Цены и услуги: блок `<!-- SERVICES -->` в `index.html`, а также `makesOffer` в schema.org и раздел «Услуги и цены» в `llms.txt`.
 - Режим работы: блок «Контакты» в `index.html`, `openingHoursSpecification` в schema.org и `llms.txt`.
-- Ссылка на запись: `BOOKING_URL` в `assets/js/main.js`. Прямые ссылки к мастерам: атрибут `data-book-url` у кнопок «Записаться к Алексею/Вадиму» в блоке `<!-- TEAM -->` (пусто, значит общая запись).
+- Ссылка на запись: `BOOKING_URL` в `assets/js/main.js`. Прямые ссылки к мастерам: атрибут `data-book-url` у кнопок «Записаться к Алексею/Вадиму» в блоке `<!-- TEAM -->` (YCLIENTS; если пусто, открывается общая Яндекс Запись).
 
 ## Фото
 
