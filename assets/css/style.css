@@ -155,6 +155,7 @@ p { margin: 0 0 1em; }
 .master__photo { aspect-ratio: 4/5; background: var(--photo-bg); overflow: hidden; }
 .master__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .9s var(--ease); }
 .master:hover .master__photo img { transform: scale(1.05); }
+.master__book { margin: 16px 16px 0; width: auto; }
 .master__body { padding: 30px; }
 .master__body h3 { font-size: 30px; text-transform: uppercase; margin-bottom: 2px; }
 .master blockquote { margin: 18px 0 24px; padding-left: 16px; border-left: 1px solid var(--light-muted); color: var(--light); font-style: italic; }
@@ -280,6 +281,7 @@ p { margin: 0 0 1em; }
   .contacts dl { justify-items: center; }
   .contacts__actions { flex-direction: column; align-items: center; }
   .hero__actions .btn, .booking__actions .btn, .contacts__actions .btn, .about__text .btn, .center .btn, .master__body .btn { width: 100%; max-width: 360px; }
+  .master__book { margin: 14px 14px 0; }
   .footer__inner { flex-direction: column; justify-content: center; }
   .js-motion .curtain { clip-path: inset(0 3% 0 3% round 24px); }
 }

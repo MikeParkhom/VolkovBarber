@@ -5,19 +5,21 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Яндекс Запись: на десктопе открываем аккуратным окном, на телефоне — новой вкладкой.
+  // У кнопок мастеров может быть своя ссылка в data-book-url, иначе общая.
   function openBooking(e) {
     e.preventDefault();
+    var url = this.dataset.bookUrl || BOOKING_URL;
     var w = 480, h = 760;
     var wide = window.matchMedia('(min-width: 861px)').matches;
     var win = null;
     if (wide) {
       var left = Math.max(0, (screen.width - w) / 2);
       var top = Math.max(0, (screen.height - h) / 2);
-      win = window.open(BOOKING_URL, 'yandex-booking', 'width=' + w + ',height=' + h + ',left=' + left + ',top=' + top);
+      win = window.open(url, 'yandex-booking', 'width=' + w + ',height=' + h + ',left=' + left + ',top=' + top);
     }
-    if (!win) win = window.open(BOOKING_URL, '_blank');
+    if (!win) win = window.open(url, '_blank');
     if (win) win.opener = null;
-    else window.location.href = BOOKING_URL;
+    else window.location.href = url;
   }
   document.querySelectorAll('[data-book], [data-yandex-booking]').forEach(function (el) {
     el.addEventListener('click', openBooking);
