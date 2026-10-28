@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://mikeparkhom.github.io/VolkovBarber/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://mikeparkhom.github.io/VolkovBarber/assets/img/team/volkov.jpg</image:loc><image:title>Алексей Волков — основатель барбершопа</image:title></image:image>
+    <image:image><image:loc>https://mikeparkhom.github.io/VolkovBarber/assets/img/team/alexey.jpg</image:loc><image:title>Барбер Алексей</image:title></image:image>
+    <image:image><image:loc>https://mikeparkhom.github.io/VolkovBarber/assets/img/team/vadim.jpg</image:loc><image:title>Барбер Вадим</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://mikeparkhom.github.io/VolkovBarber/llms.txt</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
