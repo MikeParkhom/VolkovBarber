@@ -36,8 +36,8 @@ p { margin: 0 0 1em; }
 .skip { position: absolute; left: -9999px; top: 8px; background: var(--gold); color: #111; padding: 8px 14px; border-radius: 8px; z-index: 100; }
 .skip:focus { left: 8px; }
 
-.eyebrow { font: 600 12px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: inline-flex; align-items: center; gap: 10px; }
-.eyebrow::before { content: ""; width: 26px; height: 1px; background: currentColor; }
+.eyebrow { font: 600 12px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: inline-flex; align-items: center; gap: .55em; }
+.eyebrow::before { content: "·"; font-size: 1.4em; line-height: 1; }
 .h2 { font-size: clamp(32px, 5vw, 52px); text-transform: uppercase; }
 .gold { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .muted { color: var(--muted); }
@@ -259,7 +259,7 @@ p { margin: 0 0 1em; }
 }
 @media (max-width: 560px) {
   .reviews { grid-template-columns: 1fr; }
-  .gallery { columns: 2; column-gap: 10px; }
+  .gallery { columns: 2; column-gap: .55em; }
   .gallery button { margin-bottom: 10px; }
   .hero__facts strong { font-size: 30px; }
   .price__item { flex-direction: column; align-items: flex-start; gap: 8px; }
