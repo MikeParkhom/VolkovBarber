@@ -101,13 +101,9 @@
   var intro = gsap.timeline({ defaults: { ease: 'power4.out' } });
   intro.from('.hero__title .line > span', { yPercent: 115, duration: 1.2, stagger: 0.12 })
     .from('.hero .eyebrow, .hero__lead, .hero__actions, .hero__facts', { y: 30, opacity: 0, duration: 1, stagger: 0.1 }, '-=0.8')
-    .from('.hero__ring', { scale: 0.6, opacity: 0, duration: 1.6 }, 0);
+    .from('.hero__card', { y: 60, opacity: 0, duration: 1.2, stagger: 0.12 }, 0.2);
   gsap.to('.hero__text', {
     yPercent: -18, opacity: 0.25, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-  });
-  gsap.to('.hero__ring', {
-    rotate: 140, scale: 1.3, opacity: 0, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
   });
 

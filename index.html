@@ -33,7 +33,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="modulepreload" href="assets/vendor/three.module.min.js">
 
   <script type="application/ld+json">
   {
@@ -144,9 +143,6 @@
 <body>
   <a class="skip" href="#main">Перейти к содержанию</a>
 
-  <!-- 3D-сцена: ножницы и опасная бритва, летают при прокрутке -->
-  <canvas class="stage3d" id="stage3d" aria-hidden="true"></canvas>
-
   <header class="header" id="top">
     <div class="container header__inner">
       <a class="header__logo" href="#top" aria-label="Волков барбер клуб — на главную">
@@ -180,14 +176,25 @@
             <span class="line"><span class="outline">барбер</span></span>
             <span class="line"><span>клуб</span></span>
           </h1>
-          <p class="hero__lead">Мужские и детские стрижки, стрижка и тонирование бороды. Точная работа ножницами и бритвой в спокойной атмосфере клуба.</p>
+          <p class="hero__lead">Мужские и детские стрижки, стрижка и тонирование бороды. Точная работа мастеров в спокойной атмосфере клуба.</p>
           <div class="hero__actions">
             <a class="btn btn--dark" href="#booking" data-book>Записаться онлайн</a>
             <a class="btn btn--line" href="tel:+79191979057">+7 919 197-90-57</a>
           </div>
         </div>
-        <div class="hero__stage" aria-hidden="true">
-          <div class="hero__ring"></div>
+        <div class="hero__photos">
+          <figure class="hero__card hero__card--main">
+            <img src="assets/img/team/volkov.jpg" alt="Алексей Волков, основатель барбершопа «Волков барбер клуб», у барберского кресла" width="900" height="1117" fetchpriority="high">
+            <figcaption><span>Алексей Волков</span>основатель клуба</figcaption>
+          </figure>
+          <figure class="hero__card">
+            <img src="assets/img/team/alexey.jpg" alt="Барбер Алексей" width="900" height="1200">
+            <figcaption><span>Алексей</span>барбер</figcaption>
+          </figure>
+          <figure class="hero__card">
+            <img src="assets/img/team/vadim.jpg" alt="Барбер Вадим" width="480" height="600">
+            <figcaption><span>Вадим</span>барбер</figcaption>
+          </figure>
         </div>
       </div>
       <ul class="hero__facts container">
@@ -201,8 +208,8 @@
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Стрижки</span><i>·</i><span>Борода</span><i>·</i><span>Тонирование</span><i>·</i><span>Опасная бритва</span><i>·</i><span>Детские стрижки</span><i>·</i>
-        <span>Стрижки</span><i>·</i><span>Борода</span><i>·</i><span>Тонирование</span><i>·</i><span>Опасная бритва</span><i>·</i><span>Детские стрижки</span><i>·</i>
+        <span>Стрижки</span><i>·</i><span>Борода</span><i>·</i><span>Тонирование</span><i>·</i><span>Фейды</span><i>·</i><span>Детские стрижки</span><i>·</i>
+        <span>Стрижки</span><i>·</i><span>Борода</span><i>·</i><span>Тонирование</span><i>·</i><span>Фейды</span><i>·</i><span>Детские стрижки</span><i>·</i>
       </div>
     </div>
 
@@ -446,7 +453,5 @@
   <script src="assets/vendor/gsap.min.js" defer></script>
   <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
-  <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
-  <script type="module" src="assets/js/scene.js"></script>
 </body>
 </html>
