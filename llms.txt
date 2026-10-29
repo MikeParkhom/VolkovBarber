@@ -43,6 +43,6 @@
 
 ## Ссылки
 
-- [Сайт](https://mikeparkhom.github.io/VolkovBarber/)
+- [Сайт](https://volkov-barberclub.ru/)
 - [Карточка на Яндекс Картах](https://yandex.ru/maps/org/171798453705)
 - [Страница на Яндекс Бизнесе](https://volkov-barber.clients.site/)
