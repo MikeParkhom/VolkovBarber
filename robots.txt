@@ -37,4 +37,4 @@ Allow: /
 User-agent: YandexAdditional
 Allow: /
 
-Sitemap: https://mikeparkhom.github.io/VolkovBarber/sitemap.xml
+Sitemap: https://volkov-barberclub.ru/sitemap.xml
